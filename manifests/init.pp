@@ -69,6 +69,10 @@
 #   Enables TDB mutexes which are more efficient than posix locks,
 #   if available. Use 0 or 1 as truthy value.
 #
+# @param samba_skip_share_check
+# Whether or not to check the gluster share. SHares are not system paths,
+# so when using gluster shares this must be set.
+#
 # Examples
 # --------
 #

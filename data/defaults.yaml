@@ -9,3 +9,4 @@ ctdb::max_open_files: 10000
 ctdb::logging: file:/var/log/log.ctdb
 ctdb::debuglevel: NOTICE
 ctdb::set_tdb_mutex_enabled: 0
+ctdb::samba_skip_share_check: true

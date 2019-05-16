@@ -19,8 +19,8 @@ CTDB_NODES=/<%= $ctdb::nodes %>
 CTDB_PUBLIC_ADDRESSES=<%= $ctdb::public_addresses %>
 <% } %>
 # What services should CTDB manage?  Default is none.
-<% if $ctdb::manages_samba { -%>
-CTDB_MANAGES_SAMBA=yes
+<% if $ctdb::samba_skip_share_check: { -%>
+CTDB_SAMBA_SKIP_SHARE_CHECK=yes
 <% } %>
 <% if $ctdb::manages_winbind { -%>
 CTDB_MANAGES_WINBIND=yes
