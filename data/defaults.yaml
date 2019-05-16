@@ -1,4 +1,4 @@
-manages_samba---
+---
 ctdb::recovery_lock: /gluster/lock
 ctdb::nodes: /etc/ctdb/nodes
 ctdb::public_addresses: /etc/ctdb/public_adresses
