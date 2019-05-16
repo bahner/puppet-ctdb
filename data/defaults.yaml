@@ -1,5 +1,5 @@
 ---
-ctdb::recovery_lock: /gluster/lock/.locked
+ctdb::recovery_lock: /gluster/lock/lockfile
 ctdb::nodes: /etc/ctdb/nodes
 ctdb::public_addresses: /etc/ctdb/public_addresses
 ctdb::manages_samba: false
@@ -8,4 +8,4 @@ ctdb::manages_nfs: false
 ctdb::max_open_files: 10000
 ctdb::logging: file:/var/log/log.ctdb
 ctdb::debuglevel: NOTICE
-ctdb::set_tdb_mutex_enabled: 1
+ctdb::set_tdb_mutex_enabled: 0
