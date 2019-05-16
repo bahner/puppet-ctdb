@@ -19,14 +19,17 @@ CTDB_NODES=/<%= $ctdb::nodes %>
 CTDB_PUBLIC_ADDRESSES=<%= $ctdb::public_addresses %>
 <% } %>
 # What services should CTDB manage?  Default is none.
-<% if $ctdb::samba_skip_share_check { -%>
-CTDB_SAMBA_SKIP_SHARE_CHECK=yes
+<% if $ctdb::manages_sanba { -%>
+CTDB_MANAGES_SAMBA=yes
 <% } %>
 <% if $ctdb::manages_winbind { -%>
 CTDB_MANAGES_WINBIND=yes
 <% } %>
 <% if $ctdb::manages_nfs { -%>
 CTDB_MANAGES_NFS=yes
+<% } %>
+<% if $ctdb::samba_skip_share_check { -%>
+CTDB_SAMBA_SKIP_SHARE_CHECK=yes
 <% } %>
 <% if $ctdb::max_open_files { -%>
 # Raise the file descriptor limit for CTDB?
