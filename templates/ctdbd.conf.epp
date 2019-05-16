@@ -42,7 +42,7 @@ CTDB_LOGGING=<%= $ctdb::logging %>
 
 <% if $ctdb::debuglevel { -%>
 # Default log level is NOTICE.  Want less logging?
-CTDB_DEBUGLEVEL=<%= debuglevel %>
+CTDB_DEBUGLEVEL=<%= $ctdb::debuglevel %>
 <% } -%>
 <% if $ctdb::set_tdb_mutex_enabled { -%>
 # Set some CTDB tunable variables during CTDB startup?
