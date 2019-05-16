@@ -1,0 +1,5 @@
+---
+version: 5
+default_hierarchy:
+  - name: Defaults
+    path: defaults.yaml

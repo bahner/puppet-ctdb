@@ -1,0 +1,51 @@
+# File managed by puppet
+# Options to ctdbd, read by ctdbd_wrapper(1)
+#
+# See ctdbd.conf(5) for more information about CTDB configuration variables.
+
+# Shared recovery lock file to avoid split brain.  No default.
+#
+<% if $ctdb::recovery_lock { -%>
+# Do NOT run CTDB without a recovery lock file unless you know exactly
+# what you are doing.
+CTDB_RECOVERY_LOCK=<%= $ctdb::recovery_lock %>
+<% } -%>
+
+<% if $ctdb::nodes { -%>
+# List of nodes in the cluster.  Default is below.
+CTDB_NODES=/<%= $ctdb::nodes %>
+<% } -%>
+
+<% if $ctdb::public_addresses { -%>
+# List of public addresses for providing NAS services.  No default.
+CTDB_PUBLIC_ADDRESSES=<%= $ctdb::public_addresses %>
+<% } -%>
+
+# What services should CTDB manage?  Default is none.
+<% if $ctdb::manages_samba { -%>
+CTDB_MANAGES_SAMBA=yes
+<% } -%>
+<% if $ctdb::manages_winbind { -%>
+CTDB_MANAGES_WINBIND=yes
+<% } -%>
+<% if $ctdb::manages_nfs { -%>
+CTDB_MANAGES_NFS=yes
+<% } -%>
+<% if $ctdb::max_open_files { -%>
+# Raise the file descriptor limit for CTDB?
+CTDB_MAX_OPEN_FILES=<%= $ctdb::max_open_files %>
+<% } -%>
+<% if $ctdb::logging { -%>
+# Default is to use the log file below instead of syslog.
+CTDB_LOGGING=<%= $ctdb::logging %>
+<% } -%>
+
+<% if $ctdb::debuglevel { -%>
+# Default log level is NOTICE.  Want less logging?
+CTDB_DEBUGLEVEL=<%= debuglevel %>
+<% } -%>
+<% if $ctdb::set_tdb_mutex_enabled { -%>
+# Set some CTDB tunable variables during CTDB startup?
+CTDB_SET_TDBMutexEnabled=<%= $ctdb::set_tdb_mutex_enabled %>
+<% } -%>
+

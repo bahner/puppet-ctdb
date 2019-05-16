@@ -1,0 +1,18 @@
+{
+  "name": "bahner-ctdb",
+  "version": "0.0.1",
+  "author": "Lars Bahner",
+  "summary": "Configure CTDB",
+  "license": "GPL-3",
+  "source": "https://github.com/bahner/puppet-ctdb",
+  "project_page": "https://github.com/bahner/puppet-ctdb",
+  "issues_url": "https://github.com/bahner/puppet-ctdb/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "data_provider": null
+}
+
