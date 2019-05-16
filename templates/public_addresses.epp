@@ -1,0 +1,3 @@
+<% $ctdb::public_addresses_list.flatten.each | $pal | { -%>
+<%= $pal %>
+<% } -%>

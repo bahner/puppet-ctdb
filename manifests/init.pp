@@ -25,6 +25,10 @@
 #     1.2.3.4/24 eth0
 #     1.8.8.8/30 eth0
 #
+# @param public_addresses_list
+#   The actual list (contents of public_addresses). An array
+#   with one entry for each line in file.
+#
 # @param nodes
 #   File with simple list on initial cluster members.
 #   Default: /etc/ctdb/nodes
@@ -88,6 +92,8 @@ class ctdb (
   Optional[Stdlib::Absolutepath] $public_addresses,
   Optional[Stdlib::Absolutepath] $nodes,
 
+  Optional[Array] $public_addresses_list,
+
   Optional[Boolean] $manages_samba,
   Optional[Boolean] $manages_winbind,
   Optional[Boolean] $manages_nfs,
@@ -111,7 +117,10 @@ class ctdb (
       ensure  => running,
       require => [
         Package['ctdb'],
-        File['ctdbd.conf'],
+        File[
+          'ctdbd.conf',
+          'public_addresses',
+        ],
       ],
     ;
   }
@@ -123,5 +132,16 @@ class ctdb (
       notify  => Service['ctdb'],
       path    => '/etc/ctdb/ctdbd.conf',
     ;
+  }
+
+  if $public_addresses_list and $public_addresses {
+    file {
+      'public_addresses':
+        ensure  => file,
+        path    => $public_addresses,
+        content => epp('ctdb/public_addresses.epp'),
+        notify  => Service['ctdb'],
+      ;
+    }
   }
 }
