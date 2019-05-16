@@ -60,7 +60,7 @@
 #
 # @param set_tdb_mutex_enabled
 #   Enables TDB mutexes which are more efficient than posix locks,
-#   if available.
+#   if available. Use 0 or 1 as truthy value.
 #
 # Examples
 # --------
@@ -97,7 +97,7 @@ class ctdb (
   Optional[String] $logging,
   Optional[Enum['ERR','WARNING','NOTICE']] $debuglevel,
   
-  Optional[Boolean] $set_tdb_mutex_enabled,
+  Optional[Integer] $set_tdb_mutex_enabled,
 ) {
 
   package {
