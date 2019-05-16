@@ -37,6 +37,9 @@
 #     1.2.3.4
 #     1.8.8.8
 #
+# @param nodes_list
+#   Array with list on initial cluster members.
+#
 # @param manages_samba
 #   Whether or not to manage samba service. Default is no.
 #
@@ -93,6 +96,7 @@ class ctdb (
   Optional[Stdlib::Absolutepath] $nodes,
 
   Optional[Array] $public_addresses_list,
+  Optional[Array] $nodes_list,
 
   Optional[Boolean] $manages_samba,
   Optional[Boolean] $manages_winbind,
@@ -102,7 +106,7 @@ class ctdb (
 
   Optional[String] $logging,
   Optional[Enum['ERR','WARNING','NOTICE']] $debuglevel,
-  
+
   Optional[Integer] $set_tdb_mutex_enabled,
 ) {
 
@@ -117,10 +121,7 @@ class ctdb (
       ensure  => running,
       require => [
         Package['ctdb'],
-        File[
-          'ctdbd.conf',
-          'public_addresses',
-        ],
+        File['ctdbd.conf'],
       ],
     ;
   }
@@ -132,6 +133,17 @@ class ctdb (
       notify  => Service['ctdb'],
       path    => '/etc/ctdb/ctdbd.conf',
     ;
+  }
+
+  if $nodes and $nodes_list {
+    file {
+      'nodes_list':
+        ensure  => file,
+        path    => $nodes,
+        content => epp('ctdb/nodes.epp'),
+        notify  => Service['ctdb'],
+      ;
+    }
   }
 
   if $public_addresses_list and $public_addresses {
