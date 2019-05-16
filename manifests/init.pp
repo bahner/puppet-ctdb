@@ -105,6 +105,7 @@ class ctdb (
   Optional[Boolean] $manages_samba,
   Optional[Boolean] $manages_winbind,
   Optional[Boolean] $manages_nfs,
+  Optional[Boolean] $samba_skip_share_check,
 
   Optional[Integer] $max_open_files,
 
