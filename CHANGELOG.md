@@ -1,11 +1,10 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## Release 1.0.0
 
-## Release 0.0.1
+This is bumbed a major version as the default recovery_lock has been
+removed and thus the class cant work withput setting this.
 
-**Features**
+Fixed the documentation to some degree.
 
-**Bugfixes**
-
-**Known Issues**
+COnverted to pdk
