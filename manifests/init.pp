@@ -34,6 +34,7 @@
 #     ],
 #     max_open_files        => 1000000,
 #     set_tdb_mutex_enabled => 1,
+#   }
 #
 # @param recovery_lock
 #   Some file path on a shared storage. This is requred.

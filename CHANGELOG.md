@@ -7,4 +7,4 @@ removed and thus the class cant work withput setting this.
 
 Fixed the documentation to some degree.
 
-COnverted to pdk
+Converted to pdk

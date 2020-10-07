@@ -81,6 +81,6 @@ Pull requests are welcome, so are issues.
 
 ## Release Notes
 
-Pending changelog bug to be fixed. Nothing note worthy.
+See [CHANGELOG.md](CHANGELOG.md)
 
 2020-10-07: bahner

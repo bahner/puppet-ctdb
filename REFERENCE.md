@@ -19,32 +19,6 @@ but some everyday settings are included.
 
 Batteries are not.
 
----
-ctdb::nodes: /etc/ctdb/nodes
-ctdb::nodes:list:
-  - 10.0.0.2
-  - 10.0.0.4
-  - 10.0.0.6
-  - 10.0.0.8
-  - 10.0.0.10
-ctdb::public_addresses: /etc/ctdb/public_addresses
-ctdb::public_addresses_list:
-  - '10.0.0.1 eth0'
-  - '10.0.0.3 eth0'
-  - '10.0.0.5 eth0'
-  - '10.0.0.7 eth0'
-  - '10.0.0.9 eth0'
-  - '1.2.3.4  eth1'
-  - '1.2.3.5  eth1'
-ctdb::manages_samba: false
-ctdb::manages_winbind: false
-ctdb::manages_nfs: false
-ctdb::max_open_files: 10000
-ctdb::logging: file:/var/log/log.ctdb
-ctdb::debuglevel: NOTICE
-ctdb::set_tdb_mutex_enabled: 0
-ctdb::samba_skip_share_check: false
-
 Whether or not to check the gluster share. Shares are not system paths,
 so when using gluster shares this must be set.
 
@@ -83,12 +57,7 @@ class { 'ctdb':
   ],
   max_open_files        => 1000000,
   set_tdb_mutex_enabled => 1,
-```
-
-##### Hiera example
-
-```puppet
-
+}
 ```
 
 #### Parameters
